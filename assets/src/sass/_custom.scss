@@ -1,0 +1,167 @@
+body {
+	overflow-x: hidden;
+}
+
+#wrapper {
+	padding-top: 60px;
+}
+
+input:-webkit-autofill {
+	box-shadow: 0 0 0 1000px white inset !important;
+}
+
+.valign-wrapper {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	display: block;
+	max-width: 100px;
+	margin: 32px auto;
+}
+
+.navbar-brand {
+	.logo {
+		max-height: 35px;
+		margin: 0;
+	}
+}
+
+.bg-header {
+	background-image: url("../img/bg-home.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.bg-secondary {
+	background-color: $secondary;
+}
+
+.contact-form {
+	max-width: 480px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.intro, .box {
+	padding: 48px 0;
+}
+
+.intro {
+	color: #fff;
+	width: 100%;
+	margin: 0 auto;
+
+	.intro-title {
+		font-size: 28px;
+		margin-top: 140px;
+	}
+	.intro-text {
+		text-align: justify;
+	}
+	.intro-btn {
+		border: 1px solid $light;
+		box-shadow: none;
+		margin-bottom: 50px;
+	}
+	.intro-device-mockup {
+		max-width: 250px;
+		max-height: 450px;
+	}
+}
+
+.box {
+	&-stores {
+		text-align: center;
+		position: relative;
+
+		.box-title {
+			font-size: 50px;
+		}
+		.box-text {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.badges {
+			margin-top: 40px;
+			.badge-link {
+				min-width: 135px;
+				display: inline-block;
+				margin-bottom: 0;
+			}
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			right: 0;
+			top: 0;
+			left: 0;
+			background-image: url('../img/pattern.png');
+			background-position: center;
+			background-size: cover;
+			background-color: #f7f7f7;
+			opacity: 0.4;
+		}
+	}
+
+	&-statistics {
+		color: $light;
+		background-color: #00aa9d;
+		position: relative;
+		text-align: center;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			right: 0;
+			top: 0;
+			left: 0;
+			background-image: url('../img/pattern-geometric.jpg');
+			background-position: center;
+			background-size: contain;
+			opacity: 0.08;
+		}
+
+		.statistic {
+			background-color: $danger;
+			padding: 16px;
+			text-align: center;
+			margin: 16px auto;
+			display: block;
+			vertical-align: middle;
+			border: 1px solid lighten($danger, 10%);
+			border-radius: 4px;
+
+			@media(min-width: 768px) {
+				max-width: 300px;
+				max-height: 300px;
+				height: 100%;
+			}
+
+			@media(max-width: 767px) {
+				max-width: 250px;
+			}
+		}
+
+		.container {
+			.box-title {
+				font-size: 50px;
+			}
+		}
+	}
+}
+
+#contact {
+	padding: 50px 0;
+}
