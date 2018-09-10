@@ -1,5 +1,5 @@
 this.render = (req, res) => {
-    res.render('index/index.ejs', {
+    res.render('index/view.ejs', {
         title: 'Seja bem vindo ao sistema do DOEMAIS!'
     });
 }

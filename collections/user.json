@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "5b968c04fd2ab011fb1c0ff4" }, "name" : "Rodrigo", "email" : "teste" }
+{ "_id" : { "$oid" : "5b96bb1cf51fad1502924c07" }, "location" : { "type" : "Point", "coordinates" : [ 0, 0 ] }, "name" : "Teste", "email" : "teste@teste", "password" : "$2b$10$l.LiOQLb9A44Vbir/u084.n9igFOoSBv2jvgRYqWSTd9XLa85v9Py", "creationDate" : { "$date" : "2018-09-10T18:42:36.061+0000" }, "__v" : 0 }

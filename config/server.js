@@ -1,4 +1,5 @@
 const express = require('express');
+const router = express.Router();
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('./cors');
@@ -16,4 +17,4 @@ app.listen(port, () => {
     console.log(`server running on port ${port}`);
 });
 
-module.exports = app;
+module.exports = { app, router };

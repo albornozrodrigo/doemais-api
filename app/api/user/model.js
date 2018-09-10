@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const User = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-	password: { type: String, required: true },
+    password: { type: String, required: true },
     creationDate: { type: Date, required: true, default: Date.now },
     bloodType: { type: String, required: false },
     location: {
         type: { type: String, required: false, enum: "Point", default: "Point" },
         coordinates: { type: [Number], default: [0,0], required: false }
     }
-});
+}, { collection: 'user' });
 
 User.index({ "location": "2dsphere" });
 
-export default mongoose.model('user', User);
+module.exports = mongoose.model('user', User);

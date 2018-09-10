@@ -13,9 +13,9 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./assets/dist/css/'));
 });
 
-gulp.task('watch-dev', ['sass', 'js', 'copy-files', 'nodemon'], function() {
+gulp.task('watch-dev', ['sass', 'js', 'copy-files'], function() {
 	liveReload.listen();
-	gulp.watch('./assets/src/*.*', ['sass', 'js', 'copy-files', 'nodemon']);
+	gulp.watch('./assets/src/*.*', ['sass', 'js', 'copy-files']);
 });
 
 gulp.task('copy-files', function() {

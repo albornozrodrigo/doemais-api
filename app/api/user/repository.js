@@ -1,9 +1,8 @@
-import User from './user.model';
+const model = require('./model');
 
-export async function createUser(user) {
+this.create = async (user) => {
 	try {
-		user = new User(user);
-		return await user.save();
+		return await model.create(user);
 	} catch(err) {
 		err.error = true;
 		err.errorMessage = 'Erro na criação do usuário, verifique os campos e tente novamente.'
@@ -18,11 +17,13 @@ export async function createUser(user) {
 	}
 }
 
-export async function getUsers() {
+this.getAll = async () => {
 	try {
-		return await User.find();
+		return await model.find();
 	} catch(err) {
 		err.error = true;
 		return err;
 	}
 }
+
+module.exports = this;
