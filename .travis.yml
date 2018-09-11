@@ -1,8 +1,7 @@
+sudo: required
+services:
+  - docker
 language: node_js
-after_deploy:
-- npm i
-- npm start
-- npm run serve
 deploy:
   provider: heroku
   api_key:
@@ -10,3 +9,7 @@ deploy:
   app: doemais-site-api
   on:
     repo: albornozrodrigo/doemais-site-api
+after_success:
+  - npm i
+  - npm start
+  - npm run serve
