@@ -3,5 +3,5 @@ module.exports = {
     // dbHost: 'mongodb://'+process.env.MONGO_LOGIN+':'+process.env.MONGO_PWD+'@ds251362.mlab.com:51362/doemais',
     port: process.env.PORT || 3003,
     secret: 'doemais',
-    viewsPath: './app/web'
+    viewsPath: './app/modules/web'
 };
