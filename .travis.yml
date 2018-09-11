@@ -6,7 +6,7 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    secure: KEY
+    secure: h0deQa8Ovzm7h6rgpNcMH1qTqiweLRhHtjgOi56w+2+Z5PZyl1OvKSJqg2kkkVMe6R/UVerut33n86uLXB9zRe7nvazkjsmqPGJe1kaHALQN/PiUYNhfHJgHYk8s7ZI3LL24zAerPpC6rXTJoI0gGTdH00oI19PkL7U44JsY2Q4cad2BCglieUJHPSB4kwTqE3ORa7NuCxdWjJvmHEuExlygVJxjSka78EPh26QJeIWmZxn9N2cLKSdLamrOg5FpPABrdG1tAh2800dDmOIMORprS5rX1dCSfqAIY7tOJErkN/8jzEQcFaUOAd0jrIt/2IiDkvJ14aoC/UV6TSCGlbHEDIBcO/W6JO0b7wNCs9B2mOFRxeT8ovqS8B7i43h0I+4LybnGHOA2Br/Ji2njQMOSDhair875VXF5dqKO/sobEiH6Ccz1xNtMgj9QG0EGpSXCNjGzSv1CAXx8YiJHd9iQjuBrXcbTkmMNk+cWy46831stgVySLm8OKYVe9lr9bew+FmpmWOF6ITSeEqR/4iSCc3I2i7NwHCnHYeqqYFzva8LO70eSt9bn9m2UIK8/ibiZjMkPYdKGSocl+xxvQDFFcnWkcHkFAjnPz2nbS71Mq295EEHdx4kvRGW5SBhgP+q2nlPJYYw/PbeYlhQUl8l8SNKD77wiNqoxzUnBqqg=
   app: doemais-site-api
   on:
     repo: albornozrodrigo/doemais-site-api
