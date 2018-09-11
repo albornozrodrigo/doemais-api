@@ -1,6 +1,5 @@
 language: node_js
-before_script:
-- npm install -g npm@2
+after_deploy:
 - npm i
 - npm start
 - npm run serve
