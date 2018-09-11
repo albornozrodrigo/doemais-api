@@ -14,6 +14,8 @@ WORKDIR $HOME/doemais
 
 RUN npm i --silent --progress=false
 
+RUN npm start
+
 USER root
 
 COPY . $HOME/doemais

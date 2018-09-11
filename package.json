@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "gulp",
     "dev": "gulp watch-dev",
-    "serve": "nodemon app.js",
-    "postinstall": "gulp"
+    "serve": "nodemon app.js"
   },
   "repository": {
     "type": "git",
