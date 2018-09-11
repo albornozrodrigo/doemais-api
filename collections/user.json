@@ -1,2 +1,1 @@
-{ "_id" : { "$oid" : "5b968c04fd2ab011fb1c0ff4" }, "name" : "Rodrigo", "email" : "teste" }
-{ "_id" : { "$oid" : "5b96bb1cf51fad1502924c07" }, "location" : { "type" : "Point", "coordinates" : [ 0, 0 ] }, "name" : "Teste", "email" : "teste@teste", "password" : "$2b$10$l.LiOQLb9A44Vbir/u084.n9igFOoSBv2jvgRYqWSTd9XLa85v9Py", "creationDate" : { "$date" : "2018-09-10T18:42:36.061+0000" }, "__v" : 0 }
+{ "_id" : { "$oid" : "5b96ffc39f7c131204c98e7d" }, "location" : { "type" : "Point", "coordinates" : [ 0, 0 ] }, "name" : "Rodrigo", "email" : "rodrigo.albornoz.f@gmail.com", "password" : "$2b$10$52z.TdlG2GPmLxq4MPPlcOPJgjTIkH9iVE3yFn3DaBSr1LDSGhW2G", "creationDate" : { "$date" : "2018-09-10T23:35:31.916+0000" }, "__v" : 0 }

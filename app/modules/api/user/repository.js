@@ -26,4 +26,13 @@ this.getAll = async () => {
 	}
 }
 
+this.login = async (user, callback) => {
+	try {
+		return model.findOne({ email: user.email });
+	} catch(err) {
+		err.error = true;
+		return err;
+	}
+}
+
 module.exports = this;

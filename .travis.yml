@@ -1,0 +1,12 @@
+language: node_js
+before_script:
+- npm i
+- npm start
+- npm run serve
+deploy:
+  provider: heroku
+  api_key:
+    secure: KEY
+  app: doemais-site-api
+  on:
+    repo: albornozrodrigo/doemais-site-api

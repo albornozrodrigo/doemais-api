@@ -12,8 +12,20 @@ this.create = async (req, res) => {
 	});
 }
 
+this.calculateDistance = async (req, res) => {
+	await service.calculateDistance().then(data => {
+		res.json(data);
+	});
+}
+
 this.login = async (req, res) => {
-	//
+	await service.login(req.body).then(data => {
+		res.json(data);
+	});
+}
+
+this.me = (req, res) => {
+	return res.json(req.authUser);
 }
 
 module.exports = this;
