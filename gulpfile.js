@@ -33,10 +33,6 @@ gulp.task('js', function() {
 	.pipe(gulp.dest('./assets/dist/js/'));
 });
 
-gulp.task('nodemon', function() {
-	return nodemon({ script: 'app.js' });
-});
-
 gulp.task('default', function(done) {
 	gulp.start('sass', 'js', 'copy-files')
 	.on('end', done);

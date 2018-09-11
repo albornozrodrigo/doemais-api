@@ -7,10 +7,9 @@
     "node": "8.5.0"
   },
   "scripts": {
-    "start": "gulp",
+    "start": "nodemon app.js",
     "dev": "gulp watch-dev",
-    "serve": "nodemon app.js",
-    "postinstall": "gulp & nodemon app.js"
+    "postinstall": "gulp"
   },
   "repository": {
     "type": "git",
