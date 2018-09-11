@@ -1,3 +1,6 @@
+sudo: required
+services:
+  - docker
 language: node_js
 node_js:
   - "8.5.0"
@@ -9,4 +12,4 @@ deploy:
   on:
     repo: albornozrodrigo/doemais-site-api
 after_success:
-  - npm start
+  - sh .travis/deploy_dockerhub.sh

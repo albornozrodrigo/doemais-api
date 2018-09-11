@@ -38,6 +38,6 @@ gulp.task('nodemon', function() {
 });
 
 gulp.task('default', function(done) {
-	gulp.start('sass')
+	gulp.start('sass', 'js', 'copy-files')
 	.on('end', done);
 });
