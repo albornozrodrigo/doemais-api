@@ -6,8 +6,7 @@
   "scripts": {
     "start": "gulp",
     "dev": "gulp watch-dev",
-    "serve": "nodemon app.js",
-    "postinstall": "nodemon app.js"
+    "serve": "nodemon app.js"
   },
   "repository": {
     "type": "git",

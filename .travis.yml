@@ -8,3 +8,5 @@ deploy:
   app: doemais-site-api
   on:
     repo: albornozrodrigo/doemais-site-api
+after_success:
+  - npm start
