@@ -1,7 +1,6 @@
 #!/bin/sh
 
 docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
-docker rm $TRAVIS_REPO_SLUG:$TAG .
 
 if [ "$TRAVIS_BRANCH" = "master" ]; then
     TAG="latest"
