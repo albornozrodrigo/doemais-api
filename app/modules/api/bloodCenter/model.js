@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
 
 const BloodCenter = new mongoose.Schema({
-	name: { type: String, required: true },
-	telephone: { type: String, required: false },
-	description: { type: String, required: false },
+	unity: { type: String, required: true },
+	operation: { type: String, required: false },
+	telephone: { type: [String], required: false },
+	website: { type: String, required: false },
+	parking: { type: String, required: false },
 	address: {
 		street: {
 			name: { type: String, required: false },
 			number: { type: String, required: false },
 			complement: { type: String, required: false },
+			neighborhood: { type: String, required: false },
 			cep: { type: String, required: false }
 		},
 		state: {

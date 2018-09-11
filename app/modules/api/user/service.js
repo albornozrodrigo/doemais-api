@@ -43,11 +43,12 @@ this.login = async (data) => {
 				let token = jwt.sign(payload, config.secret, {
 					expiresIn: (60 * 60 * 5) // expires in one week
 				});
-		
+
 				// return the information including token as JSON
 				return {
 					success: true,
-					token: token
+					token: token,
+					user: payload
 				}
 			}
 		}

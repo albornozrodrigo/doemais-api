@@ -20,7 +20,8 @@ this.calculateDistance = async (req, res) => {
 
 this.login = async (req, res) => {
 	await service.login(req.body).then(data => {
-		res.json(data);
+		let httpStatusCode = (data.success) ? 200 : 400;
+		res.status(httpStatusCode).json(data);
 	});
 }
 
