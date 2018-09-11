@@ -1,7 +1,9 @@
 const service = require('./service');
 
 this.getAll = async (req, res) => {
-	await service.getAll().then(data => {
+	const body = req.body.coordinates || {};
+	console.log(req.body);
+	await service.getAll(body).then(data => {
 		res.json(data);
 	});
 }
