@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 
-module.exports = function(req, res, next) {
+module.exports = (req, res, next) => {
     /*
      * Check if authorization header is set
      */
@@ -36,5 +36,4 @@ module.exports = function(req, res, next) {
         });
     }
     next();
-    return;
 }
