@@ -9,6 +9,25 @@ this.getAll = async () => {
 	}
 }
 
+this.getByGeolocation = async (coordinates, distance) => {
+	try {
+		return await model.find({
+			"address.location": {
+				"$near": {
+					"$geometry":{
+						"type": "Point",
+						"coordinates": [ coordinates.lng, coordinates.lat ]
+					},
+					"$maxDistance": distance * 1000
+				}
+			}
+		});
+	} catch(err) {
+		err.error = true;
+		return err;
+	}
+}
+
 this.create = async (bloodCenter) => {
 	try {
 		return await model.create(bloodCenter);

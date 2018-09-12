@@ -22,6 +22,7 @@ const apiRoutes = (router) => {
         router.get('/me', user.me);
         router.get('/users', user.getAll);
         router.get('/blood-centers', bloodCenter.getAll);
+        router.post('/blood-centers/geolocation', bloodCenter.getByGeolocation);
         router.post('/blood-centers', bloodCenter.create);
     });
 }
