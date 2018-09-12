@@ -35,14 +35,11 @@
     "gulp-livereload": "^4.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.1",
     "jquery": "^3.3.1",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.13",
     "morgan": "^1.9.0",
     "nodemon": "^1.18.4"
-  },
-  "devDependencies": {
-    "gulp-nodemon": "^2.2.1",
-    "gulp-uglify": "^3.0.1"
   }
 }
