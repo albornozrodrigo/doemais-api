@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass');
-const nodemon = require('gulp-nodemon');
 const liveReload = require('gulp-livereload');
 const rename = require("gulp-rename");
 const uglify = require('gulp-uglify');
