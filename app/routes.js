@@ -2,6 +2,7 @@ require('express-group-routes');
 const index = require('./modules/web/index/controller');
 const user = require('./modules/api/user/controller');
 const bloodCenter = require('./modules/api/bloodCenter/controller');
+const bot = require('./modules/api/bot/controller');
 const authMiddleware = require('./middlewares/auth');
 
 const webRoutes = (router) => {
@@ -13,6 +14,10 @@ const authRoutes = (router) => {
         router.post('/register', user.create);
         router.post('/login', user.login);
     });
+}
+
+const botRoutes = (router) => {
+    router.post('/bot', bot.getFulfillment);
 }
 
 const apiRoutes = (router) => {
@@ -29,6 +34,7 @@ const apiRoutes = (router) => {
 
 module.exports = (server) => {
     authRoutes(server.router);
+    botRoutes(server.router);
     webRoutes(server.router);
     apiRoutes(server.router);
     server.app.use(server.router);

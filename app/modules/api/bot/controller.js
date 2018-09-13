@@ -1,4 +1,5 @@
-this.getAll = async (req, res) => {
+this.getFulfillment = async (req, res) => {
+    return res.json({data: req.body});
     const body = req.body;
     let number1 = body.queryResult.parameters.number1;
     let number2 = body.queryResult.parameters.number2;
@@ -6,8 +7,8 @@ this.getAll = async (req, res) => {
     let result = 0;
 
     switch (action) {
-        case 'somar': 
-            result = number1 + number2; 
+        case 'somar':
+            result = number1 + number2;
         break;
         case 'subtrair':
             result = number1 - number2;
