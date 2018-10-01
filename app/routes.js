@@ -2,6 +2,7 @@ require('express-group-routes');
 const index = require('./modules/web/index/controller');
 const user = require('./modules/api/user/controller');
 const bloodCenter = require('./modules/api/bloodCenter/controller');
+const campaign = require('./modules/api/campaign/controller');
 const bot = require('./modules/api/bot/controller');
 const authMiddleware = require('./middlewares/auth');
 
@@ -25,10 +26,16 @@ const apiRoutes = (router) => {
     router.group('/api', (router) => {
         router.get('/', (req, res) => res.send('API'));
         router.get('/me', user.me);
+        router.put('/me', user.updateMe);
         router.get('/users', user.getAll);
         router.get('/blood-centers', bloodCenter.getAll);
         router.post('/blood-centers/geolocation', bloodCenter.getByGeolocation);
         router.post('/blood-centers', bloodCenter.create);
+        router.get('/campaigns', campaign.getMyCampaigns);
+        router.post('/campaigns/geolocation', campaign.getByGeolocation);
+        router.post('/campaigns', campaign.create);
+        router.put('/campaigns', campaign.update);
+        router.delete('/campaigns/:id', campaign.delete);
     });
 }
 

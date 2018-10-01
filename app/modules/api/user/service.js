@@ -9,8 +9,18 @@ this.getAll = async () => {
 }
 
 this.create = async (user) => {
+	let unhashedPassword = user.password;
 	user.password = bcrypt.hashSync(user.password, 10);
-	return await userRepository.create(user);
+	await userRepository.create(user);
+	return await this.login({
+		email: user.email,
+		password: unhashedPassword
+	});
+}
+
+this.update = async (id, user) => {
+	user.password = bcrypt.hashSync(user.password, 10);
+	return await userRepository.findByIdAndUpdate(id, user);
 }
 
 this.login = async (data) => {
@@ -23,13 +33,13 @@ this.login = async (data) => {
 			}
 		} else if(user) {
 			// check if password matches
-			if(bcrypt.hashSync(data.password, 10) === user.password) {
+			if(!bcrypt.compareSync(data.password, user.password)) {
 				return {
 					success: false,
 					message: 'Authentication failed. Wrong password.'
 				}
 			} else {
-				console.log(user)
+				console.log(user);
 				// if user is found and password is right
 				// create a token with only our given payload
 				// we don't want to pass in the entire user since that has the password
@@ -37,11 +47,12 @@ this.login = async (data) => {
 					_id: user._id,
 					name: user.name,
 					email: user.email,
+					bloodType: user.bloodType || null,
 					location: user.location
 				}
 
 				let token = jwt.sign(payload, config.secret, {
-					expiresIn: (60 * 60 * 5) // expires in one week
+					expiresIn: '365d'
 				});
 
 				// return the information including token as JSON
@@ -53,10 +64,6 @@ this.login = async (data) => {
 			}
 		}
 	});
-}
-
-this.calculateDistance = async () => {
-
 }
 
 module.exports = this;

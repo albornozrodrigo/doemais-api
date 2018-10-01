@@ -12,16 +12,14 @@ module.exports = (req, res, next) => {
              * The token contains user's id ( it can contain more informations )
              * and this is saved in req.user object
              */
-            req.authUser = jwt.verify(req.headers['authorization'], config.secret);
+            req.userAuthenticated = jwt.verify(req.headers['authorization'], config.secret);
         } catch(err) {
             /*
              * If the authorization header is corrupted, it throws exception
              * So return 401 status code with JSON error message
              */
             return res.status(401).json({
-                error: {
-                    msg: 'Failed to authenticate token!'
-                }
+                message: 'Failed to authenticate token!'
             });
         }
     } else {
@@ -30,9 +28,7 @@ module.exports = (req, res, next) => {
          * error message
          */
         return res.status(401).json({
-            error: {
-                msg: 'No token!'
-            }
+            message: 'No token!'
         });
     }
     next();
