@@ -25,12 +25,17 @@ const apiRoutes = (router) => {
     router.use('/api', authMiddleware);
     router.group('/api', (router) => {
         router.get('/', (req, res) => res.send('API'));
+        
+        // Me
         router.get('/me', user.me);
         router.put('/me', user.updateMe);
-        router.get('/users', user.getAll);
+        
+        // BloodCenters
         router.get('/blood-centers', bloodCenter.getAll);
         router.post('/blood-centers/geolocation', bloodCenter.getByGeolocation);
         router.post('/blood-centers', bloodCenter.create);
+        
+        // Campaigns
         router.get('/campaigns', campaign.getMyCampaigns);
         router.post('/campaigns/geolocation', campaign.getByGeolocation);
         router.post('/campaigns', campaign.create);
