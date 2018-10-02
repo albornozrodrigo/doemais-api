@@ -40,6 +40,7 @@ const apiRoutes = (router) => {
         router.post('/campaigns/geolocation', campaign.getByGeolocation);
         router.post('/campaigns', campaign.create);
         router.put('/campaigns', campaign.update);
+        router.put('/campaigns/enjoy', campaign.enjoy);
         router.delete('/campaigns/:id', campaign.delete);
     });
 }

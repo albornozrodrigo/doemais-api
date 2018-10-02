@@ -17,26 +17,14 @@ this.create = async (user) => {
 	}
 }
 
-this.update = async (id, user) => {
+this.update = async (id, data) => {
 	try {
 		return await model.update({ "_id": id }, {
-			"$set": {
-				name: user.name,
-				email: user.email,
-				password: user.password,
-				bloodType: user.bloodType
-			}
+			"$set": data
 		});
 	} catch(err) {
 		err.error = true;
-		err.errorMessage = 'Erro na criação do usuário, verifique os campos e tente novamente.'
-
-		if(err.code === 11000) {
-			err = {};
-			err.error = true;
-			err.errorMessage = 'Já existe uma conta criada com esse e-mail!'
-		}
-
+		err.errorMessage = 'Erro ao atualizar os dados, verifique os campos e tente novamente.'
 		return err;
 	}
 }

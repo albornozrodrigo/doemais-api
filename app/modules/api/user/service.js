@@ -19,8 +19,11 @@ this.create = async (user) => {
 }
 
 this.update = async (id, user) => {
-	user.password = bcrypt.hashSync(user.password, 10);
-	return await userRepository.findByIdAndUpdate(id, user);
+	return await userRepository.update(id, {
+		name: user.name,
+		email: user.email,
+		bloodType: user.bloodType
+	});
 }
 
 this.login = async (data) => {
@@ -39,7 +42,6 @@ this.login = async (data) => {
 					message: 'Authentication failed. Wrong password.'
 				}
 			} else {
-				console.log(user);
 				// if user is found and password is right
 				// create a token with only our given payload
 				// we don't want to pass in the entire user since that has the password

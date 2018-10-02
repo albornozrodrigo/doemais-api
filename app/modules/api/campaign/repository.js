@@ -63,6 +63,20 @@ this.update = async (campaign) => {
 	}
 }
 
+this.enjoy = async (campaignId, userId) => {
+	try {
+		console.log(campaignId, userId)
+		return await model.update({ "_id": campaignId }, {
+			"$push": { donors: userId }
+		}, done);
+	} catch(err) {
+		console.log(err);
+		err.error = true;
+        err.errorMessage = 'Erro ao atualizar os dados, verifique os campos e tente novamente.';
+        return err;
+	}
+}
+
 this.delete = async (id) => {
 	try {
 		return await model.findOne({ "_id": id }).remove().exec();

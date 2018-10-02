@@ -30,6 +30,12 @@ this.update = async (req, res) => {
 	});
 }
 
+this.enjoy = async (req, res) => {
+	await service.enjoy(req.body.id, req.userAuthenticated._id).then(data => {
+		res.json(data);
+	});
+}
+
 this.delete = async (req, res) => {
 	await service.delete(req.params.id).then(data => {
 		res.json(data);
