@@ -4,9 +4,11 @@ this.getAll = async () => {
 	try {
 		return await model.find();
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-		return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
 	}
 }
 
@@ -14,9 +16,11 @@ this.getMyCampaigns = async (user) => {
 	try {
 		return await model.find({ "user": user._id });
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-		return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
 	}
 }
 
@@ -36,8 +40,11 @@ this.getByGeolocation = async (coordinates, distance, userId, canDonateTo) => {
 			}
 		});
 	} catch(err) {
-		err.error = true;
-		return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
 	}
 }
 
@@ -45,10 +52,11 @@ this.create = async (campaign) => {
 	try {
 		return await model.create(campaign);
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-        err.errorMessage = 'Erro ao inserir os dados, verifique os campos e tente novamente.';
-        return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro ao inserir os dados, por favor tente novamente.'
+		}
 	}
 }
 
@@ -56,10 +64,11 @@ this.update = async (campaign) => {
 	try {
 		return await model.update(campaign);
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-        err.errorMessage = 'Erro ao atualizar os dados, verifique os campos e tente novamente.';
-        return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro ao atualizar os dados, por favor tente novamente.'
+		}
 	}
 }
 
@@ -70,10 +79,11 @@ this.enjoy = async (campaignId, userId) => {
 			"$push": { donors: userId }
 		}, done);
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-        err.errorMessage = 'Erro ao atualizar os dados, verifique os campos e tente novamente.';
-        return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
 	}
 }
 
@@ -81,10 +91,11 @@ this.delete = async (id) => {
 	try {
 		return await model.findOne({ "_id": id }).remove().exec();
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-        err.errorMessage = 'Erro ao deletar os dados, verifique os campos e tente novamente.';
-        return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
 	}
 }
 

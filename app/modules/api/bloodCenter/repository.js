@@ -3,9 +3,12 @@ const model = require('./model');
 this.getAll = async () => {
 	try {
 		return await model.find();
-	} catch(err) {
-		err.error = true;
-		return err;
+	} catch(error) {
+		return {
+			success: false,
+			status: 401,
+			message: 'Erro ao buscar os dados, por favor tente novamente.'
+		}
 	}
 }
 
@@ -22,9 +25,12 @@ this.getByGeolocation = async (coordinates, distance) => {
 				}
 			}
 		});
-	} catch(err) {
-		err.error = true;
-		return err;
+	} catch(error) {
+		return {
+			success: false,
+			status: 401,
+			message: 'Erro ao buscar os dados, por favor tente novamente.'
+		}
 	}
 }
 
@@ -32,9 +38,11 @@ this.create = async (bloodCenter) => {
 	try {
 		return await model.create(bloodCenter);
 	} catch(err) {
-		console.log(err);
-		err.error = true;
-		err.errorMessage = 'Erro ao inserir os dados, verifique os campos e tente novamente.'
+		return {
+			success: false,
+			status: 401,
+			message: 'Ocorreu um erro ao inserir os dados, por favor tente novamente.'
+		}
 	}
 }
 

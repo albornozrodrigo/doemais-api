@@ -3,17 +3,21 @@ const model = require('./model');
 this.create = async (user) => {
 	try {
 		return await model.create(user);
-	} catch(err) {
-		err.error = true;
-		err.errorMessage = 'Erro na criação do usuário, verifique os campos e tente novamente.'
+	} catch(error) {
+		console.log(error)
+		let output;
 
-		if(err.code === 11000) {
-			err = {};
-			err.error = true;
-			err.errorMessage = 'Já existe uma conta criada com esse e-mail!'
+		output = {
+			success: false,
+			status: 401,
+			message: 'Erro na criação do usuário, verifique os campos e tente novamente.'
 		}
 
-		return err;
+		if(error.code === 11000) {
+			output.message = 'Já existe uma conta criada com esse e-mail!'
+		}
+
+		return output;
 	}
 }
 
@@ -23,9 +27,11 @@ this.update = async (id, data) => {
 			"$set": data
 		});
 	} catch(err) {
-		err.error = true;
-		err.errorMessage = 'Erro ao atualizar os dados, verifique os campos e tente novamente.'
-		return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Erro ao atualizar os dados, verifique os campos e tente novamente.'
+		}
 	}
 }
 
@@ -33,8 +39,11 @@ this.getAll = async () => {
 	try {
 		return await model.find();
 	} catch(err) {
-		err.error = true;
-		return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Erro ao buscar os dados, por favor tente novamente.'
+		}
 	}
 }
 
@@ -42,8 +51,11 @@ this.login = async (user, callback) => {
 	try {
 		return model.findOne({ email: user.email });
 	} catch(err) {
-		err.error = true;
-		return err;
+		return {
+			success: false,
+			status: 401,
+			message: 'Erro ao realizar o login, verifique os campos e tente novamente.'
+		}
 	}
 }
 

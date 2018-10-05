@@ -32,6 +32,7 @@ this.login = async (data) => {
 		if(!user) {
 			return {
 				success: false,
+				status: 401,
 				message: 'Authentication failed. User not found.'
 			}
 		} else if(user) {
@@ -39,6 +40,7 @@ this.login = async (data) => {
 			if(!bcrypt.compareSync(data.password, user.password)) {
 				return {
 					success: false,
+					status: 401,
 					message: 'Authentication failed. Wrong password.'
 				}
 			} else {
@@ -60,6 +62,7 @@ this.login = async (data) => {
 				// return the information including token as JSON
 				return {
 					success: true,
+					status: 200,
 					token: token,
 					user: payload
 				}

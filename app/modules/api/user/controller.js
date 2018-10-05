@@ -2,37 +2,36 @@ const service = require('./service');
 
 this.getAll = async (req, res) => {
 	await service.getAll().then(data => {
-		res.json(data);
+		res.status(data.status || 200).json(data);
 	});
 }
 
 this.create = async (req, res) => {
 	await service.create(req.body).then(data => {
-		res.json(data);
+		res.status(data.status || 200).json(data);
 	});
 }
 
 this.updateMe = async (req, res) => {
 	await service.update(req.userAuthenticated._id, req.body).then(data => {
-		res.json(data);
+		res.status(data.status || 200).json(data);
 	});
 }
 
 this.calculateDistance = async (req, res) => {
 	await service.calculateDistance().then(data => {
-		res.json(data);
+		res.status(data.status || 200).json(data);
 	});
 }
 
 this.login = async (req, res) => {
 	await service.login(req.body).then(data => {
-		let httpStatusCode = (data.success) ? 200 : 400;
-		res.status(httpStatusCode).json(data);
+		res.status(data.status || 200).json(data);
 	});
 }
 
 this.me = (req, res) => {
-	return res.json(req.userAuthenticated);
+	return res.status(200).json(req.userAuthenticated);
 }
 
 module.exports = this;
