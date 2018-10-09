@@ -53,7 +53,7 @@ this.update = async (campaign) => {
 }
 
 this.enjoy = async (campaignId, userId) => {
-	return await repository.update(campaignId, userId);
+	return await repository.enjoy(campaignId, userId);
 }
 
 this.delete = async (id) => {

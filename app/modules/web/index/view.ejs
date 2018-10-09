@@ -1,23 +1,32 @@
 <% include ../partials/head %>
 
-    <nav id="navbar" class="navbar fixed-top navbar-dark bg-danger navbar-expand-md">
+    <nav id="navbar" class="navbar fixed-top navbar-transparent navbar-expand-md">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <div class="circle"></div>
+            <a class="navbar-brand" href="/">
                 <img src="assets/dist/img/logo.png" class="logo img-fluid" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="menu">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#intro">Início</a>
+                        <a class="nav-link" href="#intro">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#statistics">Estatísticas</a>
+                        <a class="nav-link" href="#statistics">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#stores">Download</a>
+                        <a class="nav-link" href="#stores">Dados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stores">Seja parceiro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#stores">IA (ChatBot)</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contato</a>
@@ -34,59 +43,82 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <div class="animated fadeInLeft">
-                                <h1 class="intro-title">Lorem ipsum dolor sit amet</h1>
-                                <p class="intro-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.</p>
-                                <a href="index.html" class="btn btn-lg btn-outline-light intro-btn float-right">Saiba mais</a>
+                                <h1 class="intro-title">A escolha está em <span>suas mãos</span></h1>
+                                <p class="intro-text">Escolha o local que você deseja efetuar a doação,<br/>rápido e não dói nada.</p>
+                                <img src="assets/dist/img/btn-download.png" class="img-fluid" />
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
-                            <img src="assets/dist/img/device-mockup.png" class="img-fluid intro-device-mockup animated fadeInRight" />
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="bg-hand"></div>
         </div>
     </header>
 
     <main>
-        <section id="statistics" class="box box-statistics">
+        <section id="how-to" class="box box-how-to">
             <div class="valign-wrapper">
                 <div class="container">
-                    <h2 class="box-title">O cenário atual</h2>
-                    <p class="box-text">
-                        O Brasil precisa de <strong>4,15 milhões de doadores de sangue</strong><br/>
-                        nas redes privada e pública para esse ideal ser alcançado.
-                    </p>
-                    <br/>
+                    <h2 class="box-title text-center">Como consigo doar?</h2>
+                    <br/><br/><br/>
                     <div class="row text-center">
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="statistic">
-                                <img src="assets/dist/img/01.jpg" class="img-fluid" />
-                            </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <br/>
+                            <img src="assets/dist/img/icon-1.png" class="img-fluid" />
+                            <p>Veja as campanhas<br/>por geolocalização</p>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="statistic">
-                                <img src="assets/dist/img/02.jpg" class="img-fluid" />
-                            </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <br/>
+                            <img src="assets/dist/img/icon-2.png" class="img-fluid" />
+                            <p>Veja quem<br/>precisa de ajuda</p>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                            <div class="statistic">
-                                <img src="assets/dist/img/03.jpg" class="img-fluid" />
-                            </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <br/>
+                            <img src="assets/dist/img/icon-3.png" class="img-fluid" />
+                            <p>Agende<br/>sua visita</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <br/>
+                            <img src="assets/dist/img/icon-4.png" class="img-fluid" />
+                            <p>Realize a doação<br/><small>*Ganhe horas no trabalho ou descontos especiais</small></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="stores" class="box box-stores">
+        <section id="statistics" class="box box-statistics">
             <div class="valign-wrapper">
                 <div class="container">
-                    <h2 class="box-title">Lorem ipsum dolor sit amet</h2>
-                    <p class="box-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <div class="badges">
-                        <a class="badge-link" href="#"><img src="assets/dist/img/google-play-badge.svg" class="img-fluid" alt=""></a>
-                        <a class="badge-link" href="#"><img src="assets/dist/img/app-store-badge.svg" class="img-fluid" alt=""></a>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5 text-center">
+                            <img src="assets/dist/img/img-sobre.png" class="img-fluid" />
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5">
+                            <div class="box-text">
+                                <h2 class="box-title">Porque doar?</h2>
+                                <p>Sobre o app: O aplicativo Doe+ tem como objetivo ajudar pessoas e instituições que são impactadas pelo baixo estoque de sanque disponível. Trazendo toda a informação necessária e possibilitando que qualquer pessoa possa se cadastrar tanto o doador, como a pessoa que necessita de doação.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/><br/><br/>
+                    <div class="row info">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
+                            <h2 class="box-title">Dados</h2>
+                            <button class="btn btn-danger btn-outline">Ver mais</button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <img src="assets/dist/img/dados-1.png" class="img-fluid" />
+                            <p>Apenas <span>1,8%</span> da população brasileira doa sangue.</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <img src="assets/dist/img/dados-2.png" class="img-fluid" />
+                            <p><span>3%</span> a <span>5%</span> da população é a taxa recomendada pela OMS (Organização Mundial da Saúde).</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <img src="assets/dist/img/dados-3.png" class="img-fluid" />
+                            <p>Mais de <span>1 bilhão</span> foi investido pelo Ministério da Saúde na rede de sangue e hemoderivados.</p>
+                        </div>
                     </div>
                 </div>
             </div>

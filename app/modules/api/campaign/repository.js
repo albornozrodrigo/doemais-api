@@ -3,10 +3,10 @@ const model = require('./model');
 this.getAll = async () => {
 	try {
 		return await model.find();
-	} catch(err) {
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro, por favor tente novamente.'
 		}
 	}
@@ -15,10 +15,10 @@ this.getAll = async () => {
 this.getMyCampaigns = async (user) => {
 	try {
 		return await model.find({ "user": user._id });
-	} catch(err) {
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro, por favor tente novamente.'
 		}
 	}
@@ -39,10 +39,10 @@ this.getByGeolocation = async (coordinates, distance, userId, canDonateTo) => {
 				}
 			}
 		});
-	} catch(err) {
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro, por favor tente novamente.'
 		}
 	}
@@ -51,10 +51,10 @@ this.getByGeolocation = async (coordinates, distance, userId, canDonateTo) => {
 this.create = async (campaign) => {
 	try {
 		return await model.create(campaign);
-	} catch(err) {
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro ao inserir os dados, por favor tente novamente.'
 		}
 	}
@@ -63,10 +63,10 @@ this.create = async (campaign) => {
 this.update = async (campaign) => {
 	try {
 		return await model.update(campaign);
-	} catch(err) {
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro ao atualizar os dados, por favor tente novamente.'
 		}
 	}
@@ -74,14 +74,13 @@ this.update = async (campaign) => {
 
 this.enjoy = async (campaignId, userId) => {
 	try {
-		console.log(campaignId, userId)
 		return await model.update({ "_id": campaignId }, {
-			"$push": { donors: userId }
-		}, done);
-	} catch(err) {
+			"$addToSet": { donors: userId }
+		});
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro, por favor tente novamente.'
 		}
 	}
@@ -90,10 +89,10 @@ this.enjoy = async (campaignId, userId) => {
 this.delete = async (id) => {
 	try {
 		return await model.findOne({ "_id": id }).remove().exec();
-	} catch(err) {
+	} catch(error) {
 		return {
 			success: false,
-			status: 401,
+			status: 400,
 			message: 'Ocorreu um erro, por favor tente novamente.'
 		}
 	}
