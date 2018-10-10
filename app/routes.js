@@ -1,5 +1,12 @@
 require('express-group-routes');
 const index = require('./modules/web/index/controller');
+const partner = require('./modules/web/partner/controller');
+const about = require('./modules/web/about/controller');
+const statistics = require('./modules/web/statistics/controller');
+const howItWorks = require('./modules/web/how-it-works/controller');
+const contact = require('./modules/web/contact/controller');
+const thanks = require('./modules/web/thanks/controller');
+
 const user = require('./modules/api/user/controller');
 const bloodCenter = require('./modules/api/bloodCenter/controller');
 const campaign = require('./modules/api/campaign/controller');
@@ -8,6 +15,12 @@ const authMiddleware = require('./middlewares/auth');
 
 const webRoutes = (router) => {
     router.get('/', index.render);
+    router.get('/partner', partner.render);
+    router.get('/about', about.render);
+    router.get('/statistics', statistics.render);
+    router.get('/how-it-works', howItWorks.render);
+    router.get('/contact', contact.render);
+    router.get('/thanks', thanks.render);
 }
 
 const authRoutes = (router) => {

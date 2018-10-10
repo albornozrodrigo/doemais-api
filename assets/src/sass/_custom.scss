@@ -61,6 +61,13 @@ input:-webkit-autofill {
 	}
 }
 
+@media(min-width: map-get($grid-breakpoints, "md")) {
+	.bg-white {
+		background-color: #fff !important;
+		border-bottom: 1px solid #eee;
+	}
+}
+
 .bg-header {
 	background-image: url("../img/bg-header.png");
 	background-size: cover;
@@ -99,6 +106,21 @@ input:-webkit-autofill {
 }
 
 .box {
+	&-internal {
+		padding: 0;
+		margin-top: 80px;
+		.box-title {
+			color: #ff5250;
+		}
+		p {
+			color: #80708a;
+		}
+		.box-padding {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+	}
+
 	&-how-to {
 		.box-title {
 			color: #ff5250;
@@ -106,6 +128,7 @@ input:-webkit-autofill {
 		p {
 			color: #80708a;
 		}
+		border-bottom: 1px solid #eee;
 	}
 
 	&-statistics {
@@ -126,6 +149,10 @@ input:-webkit-autofill {
 				font-size: 50px;
 				margin: 0;
 			}
+			.btn {
+				box-shadow: none;
+				border: 1px solid $danger;
+			}
 			p {
 				color: #80708a;
 				font-size: 14px;
@@ -136,6 +163,10 @@ input:-webkit-autofill {
 				}
 			}
 		}
+	}
+
+	&-video {
+		background-color: #f9f9f9;
 	}
 }
 
@@ -177,6 +208,13 @@ input:-webkit-autofill {
 	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		margin: 0 auto;
 	}
+}
+
+footer {
+	h2 { color: #fff; }
+	text-align: center;
+	padding: 50px 0;
+	background-color: #ff5250;
 }
 
 #contact {
