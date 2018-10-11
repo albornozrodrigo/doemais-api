@@ -20,7 +20,7 @@ gulp.task('watch-dev', ['sass', 'js', 'copy-files'], function() {
 gulp.task('copy-files', function() {
 	return gulp.src([
 		'./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
-		'./node_modules/jquery/dist/jquery.slim.min.js'
+		'./node_modules/jquery/dist/jquery.min.js'
 	])
 	.pipe(gulp.dest('./assets/dist/js/'));
 });

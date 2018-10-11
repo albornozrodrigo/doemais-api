@@ -8,4 +8,29 @@ $(document).ready(function() {
 			$(this).scrollTop() > $("#intro").height() ? $(".navbar").addClass('bg-white') : $(".navbar").removeClass('bg-white');
 		});
 	}
+
+	$("#contact-form").submit(function(e) {
+		$('.errors').hide();
+		var form = $(this);
+		var url = form.attr('action');
+	
+		$.ajax({
+			type: "POST",
+			url: url,
+			data: form.serialize(),
+			success: function(data) {
+				window.location.href = '/thanks';
+			},
+			error: function(errors) {
+				var res = errors.responseJSON.errors;
+				var output = '';
+				res.forEach(function(item) {
+					output += '<div class="alert alert-danger">'+item.msg+'</div>';
+				});
+				$('.errors').show().html(output);
+			}
+		});
+	
+		e.preventDefault();
+	});
 });

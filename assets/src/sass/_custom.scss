@@ -11,9 +11,13 @@ input:-webkit-autofill {
 }
 
 .valign-wrapper {
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
+	min-height: 100vh;
+
+	&.height-80 {
+		min-height: 80vh !important;
+	}
 }
 
 .logo {
@@ -91,6 +95,38 @@ input:-webkit-autofill {
 	}
 }
 
+.bg-chatbot {
+	position: absolute;
+	bottom: 0;
+	right: -80px;
+	margin-bottom: 0;
+	width: 460px;
+	height: 382px;
+	background-image: url("../img/chatbot.png");
+	background-repeat: no-repeat;
+	background-position: center;
+
+	@media(max-width: map-get($grid-breakpoints, "md")) {
+		opacity: .2;
+	}
+}
+
+.bg-partner {
+	position: absolute;
+	bottom: 80px;
+	right: -80px;
+	margin-bottom: 0;
+	width: 450px;
+	height: 295px;
+	background-image: url("../img/partner.png");
+	background-repeat: no-repeat;
+	background-position: center;
+
+	@media(max-width: map-get($grid-breakpoints, "md")) {
+		opacity: .2;
+	}
+}
+
 .bg-secondary {
 	background-color: $secondary;
 }
@@ -98,7 +134,7 @@ input:-webkit-autofill {
 .contact-form {
 	max-width: 480px;
 	width: 100%;
-	margin: 0 auto;
+	margin: 40px auto;
 }
 
 .intro, .box {
@@ -211,7 +247,8 @@ input:-webkit-autofill {
 }
 
 footer {
-	h2 { color: #fff; }
+	h2 { color: #fff; font-weight: 200; }
+	a, a:hover { color: #fff; }
 	text-align: center;
 	padding: 50px 0;
 	background-color: #ff5250;

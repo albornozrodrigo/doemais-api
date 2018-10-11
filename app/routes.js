@@ -1,37 +1,46 @@
 require('express-group-routes');
-const index = require('./modules/web/index/controller');
-const partner = require('./modules/web/partner/controller');
-const about = require('./modules/web/about/controller');
-const statistics = require('./modules/web/statistics/controller');
-const howItWorks = require('./modules/web/how-it-works/controller');
-const contact = require('./modules/web/contact/controller');
-const thanks = require('./modules/web/thanks/controller');
-
-const user = require('./modules/api/user/controller');
-const bloodCenter = require('./modules/api/bloodCenter/controller');
-const campaign = require('./modules/api/campaign/controller');
-const bot = require('./modules/api/bot/controller');
 const authMiddleware = require('./middlewares/auth');
 
+const webModules = {
+    index: require('./modules/web/index/controller').render,
+    partner: require('./modules/web/partner/controller').render,
+    about: require('./modules/web/about/controller').render,
+    statistics: require('./modules/web/statistics/controller').render,
+    privacy: require('./modules/web/privacy/controller').render,
+    chatbot: require('./modules/web/chatbot/controller').render,
+    contact: require('./modules/web/contact/controller').render,
+    thanks: require('./modules/web/thanks/controller').render
+}
+
+const apiModules = {
+    user: require('./modules/api/user/controller'),
+    bloodCenter: require('./modules/api/bloodCenter/controller'),
+    campaign: require('./modules/api/campaign/controller'),
+    bot: require('./modules/api/bot/controller'),
+    contact: require('./modules/api/contact/controller')
+}
+
 const webRoutes = (router) => {
-    router.get('/', index.render);
-    router.get('/partner', partner.render);
-    router.get('/about', about.render);
-    router.get('/statistics', statistics.render);
-    router.get('/how-it-works', howItWorks.render);
-    router.get('/contact', contact.render);
-    router.get('/thanks', thanks.render);
+    router.get('/', webModules.index);
+    router.get('/partner', webModules.partner);
+    router.get('/about', webModules.about);
+    router.get('/statistics', webModules.statistics);
+    router.get('/privacy-policy', webModules.privacy);
+    router.get('/chatbot', webModules.chatbot);
+    router.get('/contact', webModules.contact);
+    router.get('/thanks', webModules.thanks);
 }
 
 const authRoutes = (router) => {
     router.group('/auth', (router) => {
-        router.post('/register', user.create);
-        router.post('/login', user.login);
+        router.post('/register', apiModules.user.create);
+        router.post('/login', apiModules.user.login);
     });
 }
 
-const botRoutes = (router) => {
-    router.post('/bot', bot.getFulfillment);
+const otherRoutes = (router) => {
+    router.post('/bot', apiModules.bot.getFulfillment);
+    router.post('/contact', apiModules.contact.create);
 }
 
 const apiRoutes = (router) => {
@@ -40,28 +49,28 @@ const apiRoutes = (router) => {
         router.get('/', (req, res) => res.send('API'));
         
         // Me
-        router.get('/me', user.me);
-        router.put('/me', user.updateMe);
+        router.get('/me', apiModules.user.me);
+        router.put('/me', apiModules.user.updateMe);
         
         // BloodCenters
-        router.get('/blood-centers', bloodCenter.getAll);
-        router.post('/blood-centers/geolocation', bloodCenter.getByGeolocation);
-        router.post('/blood-centers', bloodCenter.create);
+        router.get('/blood-centers', apiModules.bloodCenter.getAll);
+        router.post('/blood-centers/geolocation', apiModules.bloodCenter.getByGeolocation);
+        router.post('/blood-centers', apiModules.bloodCenter.create);
         
         // Campaigns
-        router.get('/campaigns', campaign.getMyCampaigns);
-        router.post('/campaigns/geolocation', campaign.getByGeolocation);
-        router.post('/campaigns', campaign.create);
-        router.put('/campaigns', campaign.update);
-        router.put('/campaigns/enjoy', campaign.enjoy);
-        router.delete('/campaigns/:id', campaign.delete);
+        router.get('/campaigns', apiModules.campaign.getMyCampaigns);
+        router.post('/campaigns/geolocation', apiModules.campaign.getByGeolocation);
+        router.post('/campaigns', apiModules.campaign.create);
+        router.put('/campaigns', apiModules.campaign.update);
+        router.put('/campaigns/enjoy', apiModules.campaign.enjoy);
+        router.delete('/campaigns/:id', apiModules.campaign.delete);
     });
 }
 
 module.exports = (server) => {
     authRoutes(server.router);
-    botRoutes(server.router);
     webRoutes(server.router);
     apiRoutes(server.router);
+    otherRoutes(server.router);
     server.app.use(server.router);
 }
