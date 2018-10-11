@@ -55,9 +55,10 @@ input:-webkit-autofill {
 			border: 1px solid transparent !important;
 			padding: 10px 25px;
 			border-radius: 4px;
-			
+			margin-left: 5px;
+			margin-right: 5px;			
 
-			&:hover {
+			&.active, &:hover {
 				border-color: #ff5f5f !important;
 				color: #ff5f5f;
 			}

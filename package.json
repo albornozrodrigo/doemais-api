@@ -7,7 +7,7 @@
     "node": "8.5.0"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "gulp && nodemon app.js",
     "dev": "gulp watch-dev",
     "postinstall": "gulp"
   },
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/albornozrodrigo/doemais-site-api.git"
   },
-  "author": "",
+  "author": "Rodrigo Albornoz",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/albornozrodrigo/doemais-site-api/issues"
@@ -37,6 +37,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.1",
     "jquery": "^3.3.1",
+    "jquery-validation": "^1.18.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.13",
     "morgan": "^1.9.0",
