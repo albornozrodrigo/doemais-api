@@ -11,12 +11,22 @@ input:-webkit-autofill {
 }
 
 .valign-wrapper {
+	position: relative;
 	display: flex;
 	align-items: center;
 	min-height: 100vh;
+	z-index: 10;
 
 	&.height-80 {
 		min-height: 80vh !important;
+	}
+
+	&.height-60 {
+		min-height: 60vh !important;
+	}
+
+	&.height-40 {
+		min-height: 40vh !important;
 	}
 }
 
@@ -24,8 +34,8 @@ input:-webkit-autofill {
 	position: relative;
 	display: block;
 	margin: 32px auto;
-	width: 79px !important;
-	height: 63px !important;
+	//width: 79px !important;
+	height: 45px !important;
 	margin: 0;
 	z-index: 100;
 }
@@ -44,11 +54,11 @@ input:-webkit-autofill {
 		color: #fff;
 	}
 
-	@media(max-width: map-get($grid-breakpoints, "md")) {
+	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		background-color: #321048 !important;
 	}
 
-	@media(min-width: map-get($grid-breakpoints, "md")) {
+	@media(min-width: map-get($grid-breakpoints, "lg")) {
 		.nav-item .nav-link {
 			font-weight: 200;
 			color: #321048;
@@ -66,7 +76,7 @@ input:-webkit-autofill {
 	}
 }
 
-@media(min-width: map-get($grid-breakpoints, "md")) {
+@media(min-width: map-get($grid-breakpoints, "lg")) {
 	.bg-white {
 		background-color: #fff !important;
 		border-bottom: 1px solid #eee;
@@ -91,8 +101,14 @@ input:-webkit-autofill {
 	background-repeat: no-repeat;
 	background-position: center;
 
-	@media(max-width: map-get($grid-breakpoints, "md")) {
+	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		opacity: .2;
+	}
+
+	@media(max-width: map-get($grid-breakpoints, "md")) {
+		width: 100% !important;
+		left: 0;
+		right: unset !important;
 	}
 }
 
@@ -107,8 +123,14 @@ input:-webkit-autofill {
 	background-repeat: no-repeat;
 	background-position: center;
 
-	@media(max-width: map-get($grid-breakpoints, "md")) {
+	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		opacity: .2;
+	}
+
+	@media(max-width: map-get($grid-breakpoints, "md")) {
+		width: 100% !important;
+		left: 0;
+		right: unset !important;
 	}
 }
 
@@ -123,8 +145,14 @@ input:-webkit-autofill {
 	background-repeat: no-repeat;
 	background-position: center;
 
-	@media(max-width: map-get($grid-breakpoints, "md")) {
+	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		opacity: .2;
+	}
+
+	@media(max-width: map-get($grid-breakpoints, "md")) {
+		width: 100% !important;
+		left: 0;
+		right: unset !important;
 	}
 }
 
@@ -182,6 +210,9 @@ input:-webkit-autofill {
 		}
 
 		.info {
+			@media(max-width: map-get($grid-breakpoints, "md")) {
+				text-align: center;
+			}
 			.box-title {
 				font-size: 50px;
 				margin: 0;
@@ -204,6 +235,12 @@ input:-webkit-autofill {
 
 	&-video {
 		background-color: #f9f9f9;
+
+		@media(max-width: map-get($grid-breakpoints, "md")) {
+			.valign-wrapper {
+				min-height: 40vh;
+			}
+		}
 	}
 }
 
@@ -217,7 +254,7 @@ input:-webkit-autofill {
     z-index: 11;
 	border-radius: 100%;
 
-	@media(max-width: map-get($grid-breakpoints, "md")) {
+	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		display: none;
 	}
 }
@@ -244,6 +281,17 @@ input:-webkit-autofill {
 
 	@media(max-width: map-get($grid-breakpoints, "lg")) {
 		margin: 0 auto;
+	}
+
+	@media(max-width: map-get($grid-breakpoints, "lg")) {
+		.intro-title {
+			font-size: 35px;
+			span {
+				display: block;
+				font-weight: 500;
+				font-size: 57px;
+			}
+		}
 	}
 }
 
