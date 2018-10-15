@@ -59,10 +59,12 @@ const apiRoutes = (router) => {
         
         // Campaigns
         router.get('/campaigns', apiModules.campaign.getMyCampaigns);
+        router.get('/campaigns/subscribed', apiModules.campaign.getSubscribedCampaigns);
         router.post('/campaigns/geolocation', apiModules.campaign.getByGeolocation);
         router.post('/campaigns', apiModules.campaign.create);
         router.put('/campaigns', apiModules.campaign.update);
         router.put('/campaigns/enjoy', apiModules.campaign.enjoy);
+        router.put('/campaigns/unsubscribe', apiModules.campaign.unsubscribe);
         router.delete('/campaigns/:id', apiModules.campaign.delete);
     });
 }

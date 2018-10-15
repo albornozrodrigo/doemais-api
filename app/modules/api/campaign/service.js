@@ -8,6 +8,10 @@ this.getMyCampaigns = async (user) => {
 	return await repository.getMyCampaigns(user);
 }
 
+this.getSubscribedCampaigns = async (user) => {
+	return await repository.getSubscribedCampaigns(user);
+}
+
 this.getByGeolocation = async (body, userAuthenticated) => {
 	const coordinates = body.coordinates || [];
 	const distance = body.distance || 15;
@@ -54,6 +58,10 @@ this.update = async (campaign) => {
 
 this.enjoy = async (campaignId, userId) => {
 	return await repository.enjoy(campaignId, userId);
+}
+
+this.unsubscribe = async (campaignId, userId) => {
+	return await repository.unsubscribe(campaignId, userId);
 }
 
 this.delete = async (id) => {

@@ -12,6 +12,12 @@ this.getMyCampaigns = async (req, res) => {
 	});
 }
 
+this.getSubscribedCampaigns = async (req, res) => {
+	await service.getSubscribedCampaigns(req.userAuthenticated).then(data => {
+		res.status(data.status || 200).json(data);
+	});
+}
+
 this.getByGeolocation = async (req, res) => {
 	await service.getByGeolocation(req.body, req.userAuthenticated).then(data => {
 		res.status(data.status || 200).json(data);
@@ -32,6 +38,12 @@ this.update = async (req, res) => {
 
 this.enjoy = async (req, res) => {
 	await service.enjoy(req.body.id, req.userAuthenticated._id).then(data => {
+		res.status(data.status || 200).json(data);
+	});
+}
+
+this.unsubscribe = async (req, res) => {
+	await service.unsubscribe(req.body.id, req.userAuthenticated._id).then(data => {
 		res.status(data.status || 200).json(data);
 	});
 }

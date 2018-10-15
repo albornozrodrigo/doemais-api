@@ -14,7 +14,19 @@ this.getAll = async () => {
 
 this.getMyCampaigns = async (user) => {
 	try {
-		return await model.find({ "user": user._id });
+		return await model.find({ "user": user._id }).populate('donors');
+	} catch(error) {
+		return {
+			success: false,
+			status: 400,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
+	}
+}
+
+this.getSubscribedCampaigns = async (user) => {
+	try {
+		return await model.find({ "donors": { "$in": user._id } });
 	} catch(error) {
 		return {
 			success: false,
@@ -76,6 +88,20 @@ this.enjoy = async (campaignId, userId) => {
 	try {
 		return await model.update({ "_id": campaignId }, {
 			"$addToSet": { donors: userId }
+		});
+	} catch(error) {
+		return {
+			success: false,
+			status: 400,
+			message: 'Ocorreu um erro, por favor tente novamente.'
+		}
+	}
+}
+
+this.unsubscribe = async (campaignId, userId) => {
+	try {
+		return await model.update({ "_id": campaignId }, {
+			"$pull": { donors: userId }
 		});
 	} catch(error) {
 		return {
